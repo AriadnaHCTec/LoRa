@@ -11,9 +11,8 @@
 <div align="center">
   <!--<a><img src="https://www.roadsbridges.com/sites/rb/files/styles/content_type_page/public/Screen%20Shot%202021-05-06%20at%2010.43.58%20AM.png?itok=te4Bygg1" alt="Logo" width="140" height="170"/></a>
 
-  <h3 align="center">Agentes Inteligentes (Unity simulation)</h3>
-  <h5 align="center">Click <a href= "https://github.com/AriadnaHCTec/Agentes_Inteligentes">here</a> to see MESA part</h4>-->
-  El LoRa xD
+  <h3 align="center">LoRA OnBoard ROS Package</h3>
+  <h5 align="center">Click <a href= "https://github.com/AriadnaHCTec/LoRaRemote">here</a> to see Remote Computer part</h4>-->
 
 </div>
 
@@ -47,11 +46,10 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-<!--
 <p align="center">
-  <img src="https://github.com/AriadnaHCTec/Agentes_Inteligentes/blob/main/Gif/Unity.gif" alt="animated" />
+  <img src="https://github.com/AriadnaHCTec/LoRaOnBoard/blob/main/img/Flowchart.jpg"/>
 </p>
-As part of Intelligent Agents and Computer Graphics subject at Tecnológico de Monterrey, we had developed a multi-agent system that speeds up traffic with intelligent control of traffic lights.-->
+As part of Cyberphysics Systems subject at Tecnológico de Monterrey in partnership with Helgen Technologies, we had developed a system that communicates in Long Range to send ROS message from a farm to an end device (remote computer) that stores information in a Web Application.
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -59,19 +57,19 @@ As part of Intelligent Agents and Computer Graphics subject at Tecnológico de M
 ### Built With
 
 * ROS 2 Foxy
-* LoRa
+* Ubuntu 20.04
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-<!--To get a local copy up and running follow these simple example steps.-->
-
 ### Prerequisites
 
-<!--* To have an account in IBMCloud-->
-
+* [ROS 2 Foxy](https://docs.ros.org/en/foxy/Installation/Alternatives/Ubuntu-Development-Setup.html)
+* [Ubuntu 20.04](https://releases.ubuntu.com/20.04/)
+* Docker
+* [LoRa Devices](https://meshtastic.org/docs/hardware/supported/tbeam)
 
 ### Installation
 

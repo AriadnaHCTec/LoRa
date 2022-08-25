@@ -1,3 +1,9 @@
+/*
+Made by:Francisco Javier Vilchis Osorio
+	A01749495@tec.mx
+Modified (DD/MM/YY): 
+	Francisco Vilchis  17/08/2022 Creation 
+*/
 
 #include <LoRa.h>
 #include "boards.h"

@@ -1,4 +1,11 @@
-ode#include <LoRa.h>
+/*
+Made by:Raúl López Musito 
+        A01378976@tec.mx
+Modified (DD/MM/YY): 
+        Raúl López  17/08/2022 Creation 
+*/
+
+#include <LoRa.h>
 #include "boards.h"
 
 int counter = 0;

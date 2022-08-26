@@ -1,46 +1,96 @@
 import rclpy
 from rclpy.node import Node
 
-from std_msgs.msg import Int32
-from std_msgs.msg import String
+from random import randint
 
+from std_msgs.msg import Int32
+from sensor_msgs.msg import NavSatFix
+from sensor_msgs.msg import Imu
 
 class MinimalPublisher(Node):
 
     def __init__(self):
         super().__init__('minimal_publisher')
-                                                        #tipo   #nombre 
-        self.publisher_llantas = self.create_publisher(Int32, 'presion_llantas', 1)
-        self.publisher_aceite = self.create_publisher(Int32, 'nivel_aceite', 1)
-        self.publisher_llenado = self.create_publisher(Int32, 'llenado', 1)
-        self.publisher_penudos = self.create_publisher(String, 'penudos', 1)
-        timer_period = 1 
-        timer_period_llantas = 2 # seconds
-        self.timer = self.create_timer(timer_period, self.timer_callback)
-        self.timer_llantas = self.create_timer(timer_period_llantas, self.timer_callback_llantas)
-        self.nivel_de_llenado = 0
-        
-    def timer_callback(self):
-        msg_nivel_aceite = Int32()
-        msg_llenado = Int32()
-        msg_penudos = String()
 
-        msg_nivel_aceite.data = 5
-        msg_llenado.data = self.nivel_de_llenado
-        msg_penudos.data = "penudos"
+        #Navigation publishers                                             
+        self.publisher_GPS = self.create_publisher(NavSatFix, 'GPS', 1)
+        self.publisher_IMU = self.create_publisher(Imu, 'IMU', 1)
+        self.publisher_wheel_speed = self.create_publisher(Int32, 'wheel_speed', 1)
+        self.publisher_trilladora_speed = self.create_publisher(Int32, 'trilladora_speed', 1)
 
-        self.publisher_aceite.publish(msg_nivel_aceite)
-        self.publisher_llenado.publish(msg_llenado)
-        self.publisher_penudos.publish(msg_penudos)
-        self.nivel_de_llenado += 1
-        # self.get_logger().info('Publishing: "%s"' % msg.data)
+        #Collect publishers
+        self.publisher_fill = self.create_publisher(Int32, 'fill', 1)
+        self.publisher_kilograms = self.create_publisher(Int32, 'kilograms', 1)
 
-    def timer_callback_llantas(self):
-        msg_presion_llantas = Int32()
+        #Check publishers 
+        self.publisher_fuel_level = self.create_publisher(Int32, 'fuel_level', 1)
+        self.publisher_mileage = self.create_publisher(Int32, 'mileage', 1)
+        self.publisher_oil_level = self.create_publisher(Int32, 'oil_level', 1)
+        self.publisher_wheel_preasure = self.create_publisher(Int32, 'wheel_preasure', 1)
 
-        msg_presion_llantas.data = 10
+        #Frequencies     seconds
+        time_adjust = 1
+        timer_period_5 = 5 * time_adjust
+        timer_period_10 = 10 * time_adjust
+        timer_period_20 = 20 * time_adjust
 
-        self.publisher_llantas.publish(msg_presion_llantas)
+        #Create timers that call the timer_callback
+        self.timer_5 = self.create_timer(timer_period_5, self.timer_callback_5)
+        self.timer_10 = self.create_timer(timer_period_10, self.timer_callback_10)
+        self.timer_20 = self.create_timer(timer_period_20, self.timer_callback_20)
+
+        #Initial values for variables
+        self.fill_level = 0 # from 0 -> 100 +- 2
+        self.wheel_speed = 100 # 10 +- 1 (add speed changes) +- 1 (add sensor noise) 
+        self.trilladora_speed = 30 # 30 +- 1 (add peed changes) +- 1 (add sensor noise) 
+
+    def timer_callback_5(self):
+        msg_GPS = NavSatFix()
+        msg_IMU = Imu()
+        msg_wheel_speed = Int32()
+        msg_trilladora_speed = Int32()
+
+        msg_GPS.latitude = 1.0
+        msg_IMU.orientation.x = 2.0
+        msg_wheel_speed.data = self.wheel_speed
+        msg_trilladora_speed.data = self.trilladora_speed
+
+        self.publisher_GPS.publish(msg_GPS)
+        self.publisher_IMU.publish(msg_IMU)
+        self.publisher_wheel_speed.publish(msg_wheel_speed)
+        self.publisher_trilladora_speed.publish(msg_trilladora_speed)
+
+        self.wheel_speed = 100 + randint(-1,1) + randint (-1,1)
+        self.trilladora_speed = 30 + randint(-1,1) + randint (-1,1)
+
+    def timer_callback_10(self):
+        msg_wheel_preasure = Int32()
+        msg_wheel_preasure.data = 5
+        self.publisher_wheel_preasure.publish(msg_wheel_preasure)
+
+    def timer_callback_20(self):
+        msg_fill = Int32()
+        msg_kilograms = Int32()
+        msg_fuel_level = Int32()
+        msg_mileage = Int32()
+        msg_oil_level = Int32()
+
+        msg_fill.data = self.fill_level
+        msg_kilograms.data = 7
+        msg_fuel_level.data = 8
+        msg_mileage.data = 9
+        msg_oil_level.data = 10
+
+        self.publisher_fill.publish(msg_fill)
+        self.publisher_kilograms.publish(msg_kilograms)
+        self.publisher_fuel_level.publish(msg_fuel_level)
+        self.publisher_mileage.publish(msg_mileage)
+        self.publisher_oil_level.publish(msg_oil_level)
+
+        if self.fill_level >= 100:
+            self.fill_level = 0
+        else:
+            self.fill_level += 1 + randint(-2,2)
 
 def main(args=None):
     rclpy.init(args=args)

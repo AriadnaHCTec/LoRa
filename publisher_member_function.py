@@ -29,7 +29,7 @@ class MinimalPublisher(Node):
         self.publisher_wheel_preasure = self.create_publisher(Int32, 'wheel_preasure', 1)
 
         #Frequencies     seconds
-        time_adjust = 1
+        time_adjust = 1/100
         timer_period_5 = 5 * time_adjust
         timer_period_10 = 10 * time_adjust
         timer_period_20 = 20 * time_adjust

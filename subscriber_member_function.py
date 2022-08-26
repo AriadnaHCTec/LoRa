@@ -2,6 +2,7 @@ import rclpy
 from rclpy.node import Node
 
 #import tf_transformations
+import json
 
 from std_msgs.msg import Int32
 from sensor_msgs.msg import NavSatFix
@@ -40,7 +41,8 @@ class MinimalSubscriber(Node):
         if len(self.data_dictionary) == 0:
             pass
         else:
-            print (self.data_dictionary)
+            json_string = json.dumps(self.data_dictionary)
+            print (json_string)
             self.data_dictionary.clear()
             pass
 

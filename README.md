@@ -91,10 +91,10 @@ Distributed under the  Apache-2.0 License. See `LICENSE.txt` for more informatio
 <!-- CONTACT -->
 ## Contact
 
-El Raulll <hr/>
+Raúl López Musito - A01378976@tec.mx <a href="https://www.linkedin.com/in/raullopezmusito/" target="blank"><img align="right" src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555" alt="raul-lopez-musito" height="28" width="110" /></a><hr/>
 Ariadna Huesca Coronado - A01749161@tec.mx <a href="https://linkedin.com/in/ariadna-huesca-coronado" target="blank"><img align="right" src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555" alt="ariadna-huesca-coronado" height="28" width="110" /></a><hr/>
-La Danna <hr/>
-El guapo de vilchis<hr/>
+Danna Valeria González Mora - A01749171@tec.mx <a href="https://www.linkedin.com/in/danna-gonz%C3%A1lez-mora-651109220/" target="blank"><img align="right" src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555" alt="danna-gonzalez-mora" height="28" width="110" /></a><hr/>
+Francisco Javier Vilchis Osorio - A01749495@tec.mx<a href="https://www.linkedin.com/in/francisco-javier-vilchis-osorio-9037a1249/" target="blank"><img align="right" src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555" alt="raul-lopez-musito" height="28" width="110" /></a><hr/>
 <br>
 
 <p align="right">(<a href="#top">back to top</a>)</p>

@@ -3,6 +3,7 @@ from rclpy.node import Node
 
 #import tf_transformations
 import json
+import serial
 
 from std_msgs.msg import Int32
 from sensor_msgs.msg import NavSatFix
@@ -29,9 +30,12 @@ class MinimalSubscriber(Node):
         self.subscription_oil_level = self.create_subscription(Int32, 'oil_level',self.listener_callback_oil_level, 1)
         self.subscription_wheel_preasure = self.create_subscription(Int32, 'wheel_preasure',self.listener_callback_wheel_preasure, 1)
 
-        timer_period_1 = 1 # 1 second
+        #Open serial port
+        self.ser = serial.Serial('/dev/ttyACM0')  # open serial port
+        self.ser.baudrate = 9600
 
-        #Create timers that call the timer_callback
+        #Create timers that call the timer_callback}
+        timer_period_1 = 1 # 1 second
         self.timer = self.create_timer(timer_period_1, self.timer_callback)
 
         #create json
@@ -44,6 +48,8 @@ class MinimalSubscriber(Node):
             json_string = json.dumps(self.data_dictionary)
             print (json_string)
             self.data_dictionary.clear()
+            send = str(input("que quieres mandar: "))
+            self.ser.write(bytes(send,'utf-8'))
             pass
 
     def listener_callback_GPS(self, msg):

@@ -1,9 +1,3 @@
-/*
-Made by:Francisco Javier Vilchis Osorio
-	A01749495@tec.mx
-Modified (DD/MM/YY): 
-	Francisco Vilchis  17/08/2022 Creation 
-*/
 
 #include <LoRa.h>
 #include "boards.h"
@@ -29,6 +23,7 @@ void loop()
     int packetSize = LoRa.parsePacket();
     if (packetSize) {
         // received a packet
+        Serial.print("Received packet '");
 
         String recv = "";
         // read packet
@@ -37,10 +32,10 @@ void loop()
         }
 
         Serial.println(recv);
-        LoRa.flush();
+
         // print RSSI of packet
-        /*Serial.print("' with RSSI ");
-        Serial.println(LoRa.packetRssi());*/
+        Serial.print("' with RSSI ");
+        Serial.println(LoRa.packetRssi());
 /*#ifdef HAS_DISPLAY
         if (u8g2) {
             u8g2->clearBuffer();

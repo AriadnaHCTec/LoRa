@@ -49,20 +49,23 @@ void loop()
     
     
     /*cm = 0.01723 * readUltrasonicDistance(13, 2);
-    Serial.println(cm);*/
+    Serial.println(cm);*/    
     if (Serial.available() > 0) {
       // read the incoming byte:
-      incomingByte = Serial.readString();
+      incomingByte  = ' ';
+      incomingByte = Serial.readStringUntil('}');
   
       // say what you got:
       Serial.print("I received: ");
       Serial.println(incomingByte);
+      
+      LoRa.beginPacket();
       LoRa.print(incomingByte);
       LoRa.endPacket();
     }
     // send packet
-    /*LoRa.beginPacket();
-    //LoRa.print("hello ");
+
+    /*//LoRa.print("hello ");
     LoRa.print(cm);
     LoRa.endPacket();*/
 

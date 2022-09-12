@@ -4,7 +4,7 @@ from rclpy.node import Node
 #import tf_transformations
 import json
 import serial
-
+from serial import Serial
 from std_msgs.msg import Int32
 from sensor_msgs.msg import NavSatFix
 from sensor_msgs.msg import Imu
@@ -13,7 +13,7 @@ class MinimalSubscriber(Node):
 
     def __init__(self):
         super().__init__('minimal_subscriber')
-
+        self.counter = 0
         #Navigation psubscription                                             
         self.subscription_GPS = self.create_subscription(NavSatFix, 'GPS',self.listener_callback_GPS, 1)
         self.subscription_IMU = self.create_subscription(Imu, 'IMU',self.listener_callback_IMU, 1)
@@ -32,7 +32,7 @@ class MinimalSubscriber(Node):
 
         #Open serial port
         self.ser = serial.Serial('/dev/ttyACM0')  # open serial port
-        self.ser.baudrate = 9600
+        self.ser.baudrate = 115200
 
         #Create timers that call the timer_callback}
         timer_period_1 = 1 # 1 second
@@ -47,9 +47,10 @@ class MinimalSubscriber(Node):
         else:
             json_string = json.dumps(self.data_dictionary)
             print (json_string)
+            #self.counter+=1
+            #json_string = "hola"+str(self.counter)
+            self.ser.write(bytes(json_string,'utf-8'))
             self.data_dictionary.clear()
-            send = str(input("que quieres mandar: "))
-            self.ser.write(bytes(send,'utf-8'))
             pass
 
     def listener_callback_GPS(self, msg):

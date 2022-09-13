@@ -84,7 +84,7 @@ As part of Cyberphysics Systems subject at Tecnológico de Monterrey in partners
 <!-- LICENSE -->
 ## License
 
-Distributed under the  Apache-2.0 License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

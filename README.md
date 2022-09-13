@@ -71,15 +71,6 @@ As part of Cyberphysics Systems subject at Tecnológico de Monterrey in partners
 * Docker
 * [LoRa Devices](https://meshtastic.org/docs/hardware/supported/tbeam)
 
-### Installation
-
-<!--Please refer to the video installation guide (in spanish) [here](https://youtu.be/wb_zFCn_5kA)-->
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- USAGE EXAMPLES -->
-
-
 
 <!-- LICENSE -->
 ## License

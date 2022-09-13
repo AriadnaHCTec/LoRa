@@ -127,7 +127,7 @@ Francisco Javier Vilchis Osorio - A01749495@tec.mx<a href="https://www.linkedin.
 [stars-url]: https://github.com/AriadnaHCTec/AriadnaHCTec/stargazers
 [issues-shield]: https://img.shields.io/github/issues/SarahiArmenta/ServerAPP.svg?style=for-the-badge
 [issues-url]: https://github.com/SarahiArmenta/ServerAPP/issues
-[license-shield]: https://img.shields.io/github/license/AriadnaHCTec/LoRa.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/SarahiArmenta/ServerAPP.svg?style=for-the-badge
 [license-url]: https://github.com/AriadnaHCTec/LoRa/blob/main/LICENSE
 
 

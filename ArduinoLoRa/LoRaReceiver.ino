@@ -22,20 +22,14 @@ void loop()
     // try to parse packet
     int packetSize = LoRa.parsePacket();
     if (packetSize) {
-        // received a packet
-        Serial.print("Received packet '");
-
         String recv = "";
         // read packet
         while (LoRa.available()) {
             recv += (char)LoRa.read();
         }
 
-        Serial.println(recv);
+        Serial.print(recv);
 
-        // print RSSI of packet
-        Serial.print("' with RSSI ");
-        Serial.println(LoRa.packetRssi());
 /*#ifdef HAS_DISPLAY
         if (u8g2) {
             u8g2->clearBuffer();

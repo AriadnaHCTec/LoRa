@@ -53,7 +53,7 @@ void loop()
     if (Serial.available() > 0) {
       // read the incoming byte:
       incomingByte  = ' ';
-      incomingByte = Serial.readStringUntil('}');
+      incomingByte = Serial.readString();
   
       // say what you got:
       Serial.print("I received: ");
